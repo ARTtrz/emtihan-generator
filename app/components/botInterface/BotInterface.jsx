@@ -45,7 +45,9 @@ const BotInterface = ({ classData }) => {
         };
     }, []);
 
+    
     const parseLaTeX = (input) => {
+        console.log(input, 'HEEEEEELLLO')
         const regex = /\$(.*?)\$/g;
         const parts = input.split(regex);
 
@@ -284,7 +286,7 @@ const BotInterface = ({ classData }) => {
                         </div>
                     </MUI.Slide>
                 )}
-
+{/* 
                 {selectedClass && (
                     <MUI.Slide direction="right" in={true} mountOnEnter unmountOnExit>
                         <div className="mb-4">
@@ -298,9 +300,9 @@ const BotInterface = ({ classData }) => {
                             />
                         </div>
                     </MUI.Slide>
-                )}
+                )} */}
 
-                {selectedQuarter && (
+                {selectedClass && (
                     <MUI.Slide direction="right" in={true} mountOnEnter unmountOnExit>
                         <div className="mb-4">
                             <TopicSelect
@@ -399,7 +401,7 @@ const BotInterface = ({ classData }) => {
                     )
                 }
             </div>
-            <div className="w-1/4 h-full p-6 bg-white shadow-md overflow-y-auto" ref={containerRef}>
+            {/* <div className="w-1/4 h-full p-6 bg-white shadow-md overflow-y-auto" ref={containerRef}>
                 {!isInfoVisible && (
                     <button
                         onClick={() => setInfoVisible(true)}
@@ -478,7 +480,7 @@ const BotInterface = ({ classData }) => {
                         />
                     </div>
                 </MUI.Slide>
-            </div>
+            </div> */}
         </div >
     );
 };

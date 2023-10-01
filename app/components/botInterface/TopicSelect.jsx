@@ -3,7 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
 const TopicSelect = ({ classData, selectedSubject, selectedClass, selectedQuarter, selectedTopics, setSelectedTopics }) => {
-    const topicOptions = classData[selectedSubject][selectedClass][selectedQuarter];
+    const topicOptions = classData[selectedSubject][selectedClass]['1 четверть'];
 
     return (
         <div className="mt-4">

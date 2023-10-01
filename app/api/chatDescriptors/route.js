@@ -10,7 +10,7 @@ export const runtime = 'edge';
 export async function POST(req) {
 
     const { task } = await req.json();
-
+    console.log(task, 'Task')
     const messages = task.tasks.map((t) => {
         return {
             role: 'system',
@@ -38,6 +38,6 @@ export async function POST(req) {
         const stream = await OpenAIStream(payload);
         return new NextResponse(stream);
     } catch (error) {
-        return new NextResponse(JSON.stringify({ error: 'Error fetching data from ChatGPT API' })).rewrite({ status: 500 });
+        return new NextResponse(JSON.stringify({ error: 'Error fetching data from ChatGPT API for descriptors' }))
     }
 }
