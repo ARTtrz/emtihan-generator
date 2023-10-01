@@ -73,40 +73,7 @@ const BotInterface = ({ classData }) => {
         }).join('');
 
         return `
-        <div style="text-align: center; font-size: 1.2em; font-weight: bold; margin-top: 0.5in;">${data.customTitle}</div>
-        <div style="width: 80%; display: flex; justify-content: space-between; margin-top: 0.3in; margin-left: 0.80in; margin-right: 0.40in; font-size: 0.8em;">
-            <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                <div>Имя_____________</div>
-                <div>Фамилия_______________</div>
-            </div>
-            <div>Класс_____</div>
-        </div>
-        <table style="width: 80%; margin: 0.4in auto; border: 1px solid #e0e0e0; text-align: left; font-size: 0.8em; border-collapse: collapse;">
-            <colgroup>
-                <col style="width: 10%">
-                <col style="width: 90%">
-            </colgroup>
-            <tr>
-                <th style="border: 1px solid #e0e0e0; padding: 0.1in;">Тема:</th>
-                <td style="border: 1px solid #e0e0e0; padding: 0.1in;">${data.topic}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #e0e0e0; padding: 0.1in;">Цель обучения:</th>
-                <td style="border: 1px solid #e0e0e0; padding: 0.1in;">${data.learningObjective}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #e0e0e0; padding: 0.1in;">Критерий оценивания:</th>
-                <td style="border: 1px solid #e0e0e0; padding: 0.1in;">${data.evaluationCriteria}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #e0e0e0; padding: 0.1in;">Уровень мыслительных навыков:</th>
-                <td style="border: 1px solid #e0e0e0; padding: 0.1in;">${data.thinkingSkillsLevel}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #e0e0e0; padding: 0.1in;">Время выполнения:</th>
-                <td style="border: 1px solid #e0e0e0; padding: 0.1in;">${data.completionTime}</td>
-            </tr>
-        </table>
+
         <div style="margin-left: 1in; margin-right: 1in;">
             ${tasksHtml}
             <div style="margin-bottom: 0.2in;"></div>
@@ -180,6 +147,7 @@ const BotInterface = ({ classData }) => {
                     selectedQuarter,
                     selectedTopics: topic,
                 });
+                console.log(response, 'res')
                 allTasks.push({ topic, tasks: [response.data] });
             }
             setGeneratedTasks(allTasks);
@@ -187,6 +155,7 @@ const BotInterface = ({ classData }) => {
                 handleDescriptors();
             }
         } catch (error) {
+            console.log("DAAAAAMN")
             console.error("Error fetching data from ChatGPT API:", error);
         }
         setLoading(false);
@@ -196,12 +165,8 @@ const BotInterface = ({ classData }) => {
     const handleDescriptors = async () => {
         setDescriptorLoading(true);
         const allDescriptors = [];
-        for (let task of generatedTasks) {
-            const response = await axios.post('/api/chatDescriptors', {
-                task,
-            });
-            allDescriptors.push({ task, descriptor: [response.data] });
-        }
+        
+        console.log(allDescriptors, 'Descriptors')
         setDescriptors(allDescriptors);
         setDescriptorLoading(false);
     };

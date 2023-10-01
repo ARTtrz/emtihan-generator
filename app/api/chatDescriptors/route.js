@@ -23,21 +23,22 @@ export async function POST(req) {
     });
 
     const payload = {
-        model: 'gpt-3.5-turbo-16k',
+        model: 'gpt-3.5-turbo',
         messages: messages,
         temperature: process.env.AI_TEMP ? parseFloat(process.env.AI_TEMP) : 0.7,
         max_tokens: process.env.AI_MAX_TOKENS ? parseInt(process.env.AI_MAX_TOKENS) : 200,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
-        stream: true,
-        n: 1,
+        stream: true
     };
 
     try {
         const stream = await OpenAIStream(payload);
+        console.log(stream, 'Stream')
         return new NextResponse(stream);
     } catch (error) {
+        console.log("Descriptors failed")
         return new NextResponse(JSON.stringify({ error: 'Error fetching data from ChatGPT API for descriptors' }))
     }
 }
