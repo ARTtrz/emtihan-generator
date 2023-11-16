@@ -36,7 +36,7 @@ export default function NavBar() {
                             height="50"
                             className="mr-2 rounded-sm"
                         />
-                        <p className={`font-extrabold ${scrollPosition > 50 ? "text-[#111110]" : "text-[#111110]"} transition-colors duration-300`}>EmtihanGPT</p>
+                        <p className={`font-extrabold ${scrollPosition > 50 ? "text-[#111110]" : "text-[#111110]"} transition-colors duration-300`}>EmtihanAI</p>
                     </div>
                 </Link>
 
