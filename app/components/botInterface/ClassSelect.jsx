@@ -12,7 +12,7 @@ const ClassSelect = ({ classData, selectedSubject, selectedClass, setSelectedCla
 
     return (
         <div className="mt-4">
-            <h2 className="text-2xl font-bold mb-4">Выберите ваш класс:</h2>
+            <h2 className="text-2xl font-bold mb-4">Выберите Ваш класс:</h2>
             <Select
                 onChange={(e) => {
                     if (e) {

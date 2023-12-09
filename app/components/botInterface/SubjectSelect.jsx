@@ -17,8 +17,8 @@ const SubjectSelect = ({ classData, selectedSubject, setSelectedSubject, changeS
 
     return (
         <div>
-            <p className="text-4xl font-bold mb-8 flex justify-center">Дорогой учитель!</p>
-            <h1 className="text-2xl font-bold mb-4">Выберите предмет обучения:</h1>
+            <p className="text-4xl font-bold mb-8 flex justify-center">Дорогой Yerdaulet!</p>
+            <h1 className="text-2xl font-bold mb-4">Выберите предмет</h1>
             <Select
                 onChange={(e) => {
                     if (e) {

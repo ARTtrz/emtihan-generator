@@ -288,7 +288,7 @@ const BotInterface = ({ classData }) => {
                             <button
                                 onClick={handleGenerate}
                                 disabled={loading || selectedTopics.length === 0}
-                                className="w-full py-2 text-xl font-semibold rounded-lg shadow-lg text-white bg-blue-500 hover:bg-blue-600 transition duration-300"
+                                className="w-full py-2 text-xl font-semibold rounded-lg shadow-lg text-white bg-primary  hover:bg-blue-600 transition duration-300"
                             >
                                 {loading ? 'Создание задач...' : 'Создать задания на выбранные темы'}
                             </button>
@@ -296,13 +296,13 @@ const BotInterface = ({ classData }) => {
                                 <button
                                     onClick={handleAppend}
                                     disabled={loading || selectedTopics.length === 0 || generatedTasks.length === 0}
-                                    className="w-1/2 py-2 font-semibold rounded-lg shadow-lg text-white bg-green-500 hover:bg-green-600 transition duration-300"
+                                    className="w-1/2 py-2 font-semibold rounded-lg shadow-lg text-white bg-primary hover:bg-blue-600 transition duration-300"
                                 >
                                     {loading ? 'Добавление заданий...' : 'Добавить еще заданий'}
                                 </button>
                                 <button
                                     onClick={handleReset}
-                                    className="w-1/2 py-2 font-semibold rounded-lg shadow-lg text-white bg-purple-500 hover:bg-purple-600 transition duration-300"
+                                    className="w-1/2 py-2 font-semibold rounded-lg shadow-lg text-white bg-primary  hover:bg-blue-600 transition duration-300"
                                 >
                                     Обновить
                                 </button>
@@ -327,7 +327,7 @@ const BotInterface = ({ classData }) => {
                 {
 
                     generatedTasks && generatedTasks.length > 0 && descriptors != null && (
-                        <div className="flex-1 h-full p-8 overflow-auto bg-white">
+                        <div className="flex-1 h-full p-8 overflow-auto bg-primary">
                             <div className="bg-white p-6 rounded-lg shadow-md space-y-4">
                                 <h2 className="text-2xl font-bold mb-4">Вот ваши задачи:</h2>
                                 <div id="pdfContent">
@@ -340,7 +340,7 @@ const BotInterface = ({ classData }) => {
                                 </div>
                                 <button
                                     onClick={downloadPdf}
-                                    className={`py-2 px-4 font-semibold text-white rounded-lg shadow-md hover:bg-blue-700 ${learningObjective ? 'bg-blue-500' : 'bg-blue-300 cursor-not-allowed'
+                                    className={`py-2 px-4 font-semibold text-white bg-primary rounded-lg shadow-md hover:bg-blue-700 ${learningObjective ? 'bg-blue-500' : 'bg-blue-300 cursor-not-allowed'
                                         }`}
                                 >
                                     Download PDF

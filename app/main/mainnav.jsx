@@ -26,11 +26,11 @@ export default function NavBar() {
                 ${scrollPosition > 50 ? "bg-[#F1F4F9]" : "bg-[#F1F4F9]"}
             `}
         >
-            <div className="flex justify-between mx-3 md:mx-5 h-16 max-w-screen-xl items-center xl:mx-auto">
+            <div className="flex justify-between mx-1 md:mx-5 h-16 max-w-screen-xl items-center xl:mx-auto">
                 <Link href="/" passHref>
-                    <div className="flex items-center font-display text-2xl cursor-pointer">
+                    <div className="flex items-center font-display text-2xl cursor-pointer ">
                         <Image
-                            src="/logo1.png"
+                            src="/logo.png"
                             alt="N17R logo"
                             width="50"
                             height="50"
@@ -51,6 +51,7 @@ export default function NavBar() {
                                 </button>
                             </Link>
                         ))}
+                       
                     </div>
 
                     <div className="relative">
@@ -72,6 +73,14 @@ export default function NavBar() {
                                 ))}
                             </div>
                         )}
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Image
+                            src="/user.png"
+                            width={40}
+                            height={30}
+                        />
+                        <span>Yerdaulet D.</span>
                     </div>
                 </nav>
             </div>
