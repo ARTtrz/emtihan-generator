@@ -316,9 +316,7 @@ const BotInterface = ({ classData }) => {
                 style={generatedTasks && generatedTasks.length > 0
                     ? {}
                     : {
-                        backgroundColor: "#ffffff",
-                        opacity: "0.5",
-                        backgroundImage: 'linear-gradient(#9090b9 0.8px, transparent 0.8px), linear-gradient(90deg, #9090b9 0.8px, transparent 0.8px), linear-gradient(#9090b9 0.4px, transparent 0.4px), linear-gradient(90deg, #9090b9 0.4px, #ffffff 0.4px)',
+                        backgroundColor: "#10295A",
                         backgroundSize: '20px 20px, 20px 20px, 4px 4px, 4px 4px',
                         backgroundPosition: '-0.8px -0.8px, -0.8px -0.8px, -0.4px -0.4px, -0.4px -0.4px',
                     }
@@ -326,7 +324,7 @@ const BotInterface = ({ classData }) => {
             >
                 {
 
-                    generatedTasks && generatedTasks.length > 0 && descriptors != null && (
+                    generatedTasks && generatedTasks.length > 0 && descriptors != null ? (
                         <div className="flex-1 h-full p-8 overflow-auto bg-primary">
                             <div className="bg-white p-6 rounded-lg shadow-md space-y-4">
                                 <h2 className="text-2xl font-bold mb-4">Вот ваши задачи:</h2>
@@ -363,8 +361,14 @@ const BotInterface = ({ classData }) => {
                                 )}
                             </div>
                         </div>
+                    ) : (
+                        <div className="text-white text-bold text-2xl uppercase flex items-center justify-center h-5/6 bg-primary mt-20">
+                            Создайте свое задание!
+                        </div>
                     )
+                  
                 }
+ 
             </div>
             {/* <div className="w-1/4 h-full p-6 bg-white shadow-md overflow-y-auto" ref={containerRef}>
                 {!isInfoVisible && (
