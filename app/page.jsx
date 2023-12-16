@@ -1,20 +1,25 @@
-import Landing from './components/home/landing';
-import NavBar from './components/home/navbar';
-import FAQ from './faq/page';
-import Footer from './components/home/footer';
-import { Analytics } from '@vercel/analytics/react';
-import Instructions from './instructions/page';
+// import BotInterface from "../components/botInterface/BotInterface";
+import NavBar from "app/main/mainnav.jsx";
+import dynamic from 'next/dynamic'
 
 
-export default function Page() {
-  return (
-    <>
-      <NavBar />
-      <Landing />
-      <FAQ id='faq' />
-      <Instructions id='instructions' />
-      <Footer />
-      <Analytics />
-    </>
-  )
+async function getData() {
+    const res = await fetch('https://fastapi-emvg.onrender.com/auth/json');
+    const data = await res.json();
+    return data;
+}
+
+const ComponentWithNoSSR = dynamic(
+    () => import('./components/botInterface/BotInterface'),
+    { ssr: false }
+)
+
+export default async function Home() {
+    const data = await getData();
+    return (
+        <>
+            <NavBar />
+            <ComponentWithNoSSR classData={data} />
+        </>
+    );
 }
